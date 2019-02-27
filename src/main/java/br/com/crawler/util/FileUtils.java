@@ -1,15 +1,23 @@
 package br.com.crawler.util;
 
+import com.sun.javafx.PlatformUtil;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.UUID;
 
+/**
+ * @author Elvis Fernandes on 24/02/19
+ */
 public class FileUtils {
 
     private static String getUserHomeDirectory() {
 
+        if(PlatformUtil.isWindows()) {
+            return System.getProperty("user.home");
+        }
         return System.getenv("HOME");
     }
 
